@@ -13,8 +13,10 @@ df <- hpcons[(hpcons$Date == "1/2/2007" | hpcons$Date == "2/2/2007"), ]
 df$DateTime <- strptime(paste(df$Date, df$Time, sep = " "), "%d/%m/%Y %H:%M:%S") 
 df$Date <- as.Date(df$Date, format = "%d/%m/%Y")
 
-# Converting Date to Weekday
+# Plotting
 png(file = "Plot 2.png")
 plot(df$DateTime, df$Global_active_power, type = "l", xaxt = "n", xlab = "", ylab = "Global Active Power (kilwatts)")
+
+# Ensure X-axis reflects Day of Week
 axis.POSIXct(1, df$DateTime, format = "%a")
 dev.off()
