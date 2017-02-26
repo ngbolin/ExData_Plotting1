@@ -13,6 +13,7 @@ df <- hpcons[(hpcons$Date == "1/2/2007" | hpcons$Date == "2/2/2007"), ]
 df$DateTime <- strptime(paste(df$Date, df$Time, sep = " "), "%d/%m/%Y %H:%M:%S") 
 df$Date <- as.Date(df$Date, format = "%d/%m/%Y")
 
+# Plotting
 png(file = "Plot 4.png")
 par(mfrow = c(2, 2))
 
